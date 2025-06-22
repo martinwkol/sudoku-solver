@@ -121,6 +121,7 @@ void sudokuSimplePrint(Sudoku* sudoku, FILE* file) {
         if (entry == SUDOKU_NO_ENTRY)   fprintf(file, "0");
         else                            fprintf(file, "%d", entry);
     }
+    fprintf(file, "\n");
 }
 
 static void printHorizontalLine(FILE* file) {
