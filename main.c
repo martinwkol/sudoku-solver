@@ -2,6 +2,15 @@
 #include <stdio.h>
 #include <unistd.h>
 
+static void printUsage(FILE* file, char* appPath) {
+    fprintf(file, 
+        "Usage: %s [-si]\n"
+        "Options:\n"
+        " -s\tSimple output format\n"
+        " -i\tPrint input\n", 
+    appPath);
+}
+
 int main(int argc, char** argv) {
     sudokuInitTables();
     Sudoku sudoku;
@@ -15,7 +24,7 @@ int main(int argc, char** argv) {
         case 's': printSudoku = sudokuSimplePrint; break;
         case 'i': printInput = 1; break;
         default:
-            fprintf(stderr, "Usage: %s [-si]\n", argv[0]);
+            printUsage(stderr, argv[0]);
             return 1;
         }
     }
