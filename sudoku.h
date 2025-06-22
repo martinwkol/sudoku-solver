@@ -22,9 +22,9 @@ typedef struct {
 
 void sudokuInitTables();
 void sudokuInitEmpty(Sudoku* sudoku);
-void sudokuReadFromFile(Sudoku* sudoku, FILE* file);
-void sudokuSimplePrint(Sudoku* sudoku, FILE* file);
-void sudokuPrettyPrint(Sudoku* sudoku, FILE* file);
+void sudokuReadFromFile(FILE* file, Sudoku* sudoku);
+void sudokuSimplePrint(FILE* file, Sudoku* sudoku);
+void sudokuPrettyPrint(FILE* file, Sudoku* sudoku);
 
 inline SudokuEntry sudokuGet(Sudoku* sudoku, int row, int column) {
     assert(0 <= row && row < SUDOKU_NUM_ROWS);

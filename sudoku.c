@@ -96,7 +96,7 @@ void sudokuInitEmpty(Sudoku* sudoku) {
     }
 }
 
-void sudokuReadFromFile(Sudoku* sudoku, FILE* file) {
+void sudokuReadFromFile(FILE* file, Sudoku* sudoku) {
     for (int idx = 0; idx < SUDOKU_NUM_SQUARES; idx++) {
         sudoku->entries[idx] = SUDOKU_NO_ENTRY;
         sudoku->options[idx] = SUDOKU_ALL_OPTIONS;
@@ -115,7 +115,7 @@ void sudokuReadFromFile(Sudoku* sudoku, FILE* file) {
 
 // Print sudoku
 
-void sudokuSimplePrint(Sudoku* sudoku, FILE* file) {
+void sudokuSimplePrint(FILE* file, Sudoku* sudoku) {
     for (int idx = 0; idx < SUDOKU_NUM_SQUARES; idx++) {
         SudokuEntry entry = sudoku->entries[idx];
         if (entry == SUDOKU_NO_ENTRY)   fprintf(file, "0");
@@ -132,7 +132,7 @@ static void printHorizontalLine(FILE* file) {
     fprintf(file, "++\n");
 }
 
-void sudokuPrettyPrint(Sudoku* sudoku, FILE* file) {
+void sudokuPrettyPrint(FILE* file, Sudoku* sudoku) {
     for (int row = 0; row < SUDOKU_NUM_ROWS; row++) {
         printHorizontalLine(file);
         if (row % SUDOKU_CELL_SIZE == 0) printHorizontalLine(file);

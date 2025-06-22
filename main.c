@@ -6,8 +6,7 @@ int main(int argc, char** argv) {
     sudokuInitTables();
     Sudoku sudoku;
 
-    
-    void (*printSudoku)(Sudoku*, FILE*) = sudokuPrettyPrint;
+    void (*printSudoku)(FILE*, Sudoku*) = sudokuPrettyPrint;
     int printInput = 0;
     int opt;
     while ((opt = getopt(argc, argv, "si")) != -1) {
@@ -20,12 +19,10 @@ int main(int argc, char** argv) {
             return 1;
         }
     }
-    
 
-    sudokuReadFromFile(&sudoku, stdin);
-
+    sudokuReadFromFile(stdin, &sudoku);
     if (printInput) {
-        printSudoku(&sudoku, stdout);
+        printSudoku(stdout, &sudoku);
         printf("\n");
     }
 
@@ -34,7 +31,7 @@ int main(int argc, char** argv) {
         fprintf(stderr, "Sudoku not solvable\n");
         return 2;
     }
-    printSudoku(&sudoku, stdout);
+    printSudoku(stdout, &sudoku);
 
     return 0;
 }
