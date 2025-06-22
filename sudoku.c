@@ -143,7 +143,9 @@ void sudokuPrettyPrint(Sudoku* sudoku, FILE* file) {
 
 
 
-// Set square
+// getter & setter for for squares
+
+extern inline SudokuEntry sudokuGet(Sudoku* sudoku, int row, int column);
 
 void sudokuSet(Sudoku* sudoku, int row, int column, SudokuEntry entry) {
     assert(sudoku->entries[squareIdx(row, column)] == SUDOKU_NO_ENTRY);
