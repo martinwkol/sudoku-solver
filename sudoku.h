@@ -23,6 +23,7 @@ typedef struct {
 void sudokuInitTables();
 void sudokuInitEmpty(Sudoku* sudoku);
 void sudokuReadFromFile(Sudoku* sudoku, FILE* file);
+void sudokuSimplePrint(Sudoku* sudoku, FILE* file);
 void sudokuPrettyPrint(Sudoku* sudoku, FILE* file);
 
 inline SudokuEntry sudokuGet(Sudoku* sudoku, int row, int column) {

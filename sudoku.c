@@ -115,6 +115,14 @@ void sudokuReadFromFile(Sudoku* sudoku, FILE* file) {
 
 // Print sudoku
 
+void sudokuSimplePrint(Sudoku* sudoku, FILE* file) {
+    for (int idx = 0; idx < SUDOKU_NUM_SQUARES; idx++) {
+        SudokuEntry entry = sudoku->entries[idx];
+        if (entry == SUDOKU_NO_ENTRY)   fprintf(file, "0");
+        else                            fprintf(file, "%d", entry);
+    }
+}
+
 static void printHorizontalLine(FILE* file) {
     for (int column = 0; column < SUDOKU_NUM_COLUMNS; column++) {
         if (column % SUDOKU_CELL_SIZE == 0) fprintf(file, "++---");
