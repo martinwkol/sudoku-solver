@@ -158,6 +158,7 @@ extern inline SudokuEntry sudokuGet(Sudoku* sudoku, int row, int column);
 
 void sudokuSet(Sudoku* sudoku, int row, int column, SudokuEntry entry) {
     assert(sudoku->entries[squareIdx(row, column)] == SUDOKU_NO_ENTRY);
+    assert(1 <= entry && entry <= 9);
     sudoku->entries[squareIdx(row, column)] = entry;
     for (int c = 0; c < SUDOKU_NUM_COLUMNS; c++) {
         optionsRemove(&sudoku->options[squareIdx(row, c)], entry);
